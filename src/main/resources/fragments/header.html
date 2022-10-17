@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<html>
+<head>
+
+</head>
+<body>
+<div th:fragment="header">
+  <header>
+
+    <nav id="headerBarre" class="navbar navbar-expand-lg bg-warning">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" th:href="@{/contact/home}" >Ma list de contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" th:href="@{/contact/add}">Ajouter un contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" th:href="@{/contact/addRelation}">Ajouter une relation entre mes contacts</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white" th:href="@{/user/update}">Profil</a>
+            </li>
+            <div sec:authorize="isAuthenticated()">
+            <li class="nav-item">
+              <form method="post" th:action="@{/logout}">
+                <button class="btn btn-danger">Logout</button>
+              </form>
+            </li>
+            </div>
+
+            <form class="d-flex" role="search" method="get" th:action="@{/contact/home}">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searchValue">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </ul>
+        </div>
+    </nav>
+
+  </header>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}">
+  <title>home</title>
+</head>
+<body>
+
+<div class="container-fluid px-0">
+  <div th:insert="../fragments/header :: header">
+  </div>
+  <main class="mx-5">
+    <form method="post" th:action="@{/contact/add}" th:object="${contact}" enctype="multipart/form-data">
+      <h1 class="h3 mb-3 fw-normal"><strong>Création d'un contact :</strong></h1>
+
+      <div>
+        <input type="file" th:field="*{file}"  id="picture" >
+        <label for="picture">Insérer une image pour cette personne</label>
+      </div>
+
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Prénom" th:field="*{name}" >
+        <label for="floatingInput">Prénom :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingfirstName" placeholder="Nom " th:field="*{firstName}" >
+        <label for="floatingfirstName">Nom de famille :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="email" class="form-control" id="floatingemail" placeholder="Email" th:field="*{email}" >
+        <label for="floatingemail">Adresse email :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="date" class="form-control" id="floatingbirthdate" placeholder="Date d'anniversaire" th:field="*{birthdate}" >
+        <label for="floatingbirthdate">Date d'anniversaire :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingnote" placeholder="Note concernant le contact" th:field="*{note}" >
+        <label for="floatingnote">Note concernant le contact :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingphone" placeholder="Numéro de téléphone" th:field="*{phone}" >
+        <label for="floatingphone">Numéro de téléphone :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingaddress" placeholder="Adresse" th:field="*{address}" >
+        <label for="floatingaddress">Adresse du contact :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingcity" placeholder="Ville" th:field="*{city}" >
+        <label for="floatingcity">Ville :</label>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text" class="form-control" id="floatingrelation" placeholder="Relation" th:field="*{relation}" >
+        <label for="floatingrelation">Votre relation avec cettte personne :</label>
+      </div>
+
+
+      <button class="w-100 btn btn-lg btn-primary my-3" type="submit">Ajouter le contact</button>
+    </form>
+  </main>
+  <footer>
+
+  </footer>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous">
+
+</script>
+</body>
+</html>
